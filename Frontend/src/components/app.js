@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class App extends Component {
   render() {
     return (
-      <div>React up and Running...</div>
+      <div>{this.props.children}</div>
     );
   }
 }
