@@ -1,1 +1,1 @@
-# kbArticle
+# Knowledge Base Articles Management
