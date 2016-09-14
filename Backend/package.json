@@ -1,7 +1,7 @@
 {
   "name": "kbArticle",
   "version": "1.0.0",
-  "description": "",
+  "description": "Knowledge Base Articles Management",    
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,8 @@
     "url": "https://github.com/fabiofernandesx/kbArticle.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fabio Fernandes <fabio@fabiofernandes.net>",
+  "license": "MIT",
   "dependencies": {    
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
