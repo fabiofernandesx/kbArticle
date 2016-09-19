@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
+var mongoosePaginate = require('mongoose-paginate');    
 
 var schema = new Schema({
     title: String,
@@ -15,8 +16,11 @@ var schema = new Schema({
     revisors: String,
     dateCreated:String,
     dateModified:String,
+    reviewDate:String,
+    reviewNumber:String
 
 });
+schema.plugin(mongoosePaginate);
 
 
 module.exports = mongoose.model('kbArticle', schema);

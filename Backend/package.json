@@ -1,7 +1,7 @@
 {
   "name": "kbArticle",
-  "version": "1.0.0",
-  "description": "Knowledge Base Articles Management",    
+  "version": "0.1.0",
+  "description": "Knowledge Base Articles Management",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,13 +13,14 @@
   "keywords": [],
   "author": "Fabio Fernandes <fabio@fabiofernandes.net>",
   "license": "MIT",
-  "dependencies": {    
+  "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cors": "^2.8.0",
-    "express": "^4.14.0",        
+    "express": "^4.14.0",
     "moment": "^2.14.1",
     "mongoose": "^4.5.8",
+    "mongoose-paginate": "^5.0.0",
     "morgan": "^1.7.0"
   }
 }

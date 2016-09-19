@@ -16,7 +16,10 @@ exports.create = function (req, res) {
             author : req.body.author,
             revisors : req.body.revisors,
             dateCreated : req.body.dateCreated,
-            dateModified : req.body.dateModified
+            dateModified : req.body.dateModified,
+            reviewDate : req.body.reviewDate,
+            reviewNumber : req.body.reviewNumber          
+              
         });
         kbArticle.save(function (err) {        
 
@@ -33,12 +36,44 @@ exports.create = function (req, res) {
     }
 };
 
-exports.findall = function (req, res) {       
-    var terms = 
-        req.body.term.split(' ')
-        .map(function(element){
-            return new RegExp(element, 'i')
-        });
+exports.findall = function (req, res) {          
+    if(req.body.term.trim().length < 3) return res.status(200).json({success:true,  articles:[]});
+
+    var page = req.body.page;
+    var pagesize = 10;
+    var terms = new RegExp( req.body.term.trim(), 'i');
+
+model.paginate({
+
+        $or:[ 
+
+            { title: { "$in" : terms } }, 
+            { audience: { "$in" : terms } },
+            { apliesTo: { "$in" : terms } },
+            { ticket: { "$in" : terms } },
+            { issue: { "$in" : terms } },
+            { root: { "$in" : terms } },
+            { prereqs: { "$in" : terms } },
+            { solution: { "$in" : terms } },
+            { author: { "$in" : terms } },
+            { revisors: { "$in" : terms } },
+            { dateCreated: { "$in" : terms } },
+            { dateModified: { "$in" : terms } },
+            { reviewDate: { "$in" : terms } } ,
+            { reviewNumber: { "$in" : terms } }         
+        ]
+
+
+}, { page: page, limit: pagesize }, function(err, result) {
+    // result.docs 
+    // result.total 
+    // result.limit - 10 
+    // result.page - 3 
+    // result.pages 
+  res.status(200).json({success:true, term:req.body.term, count: result.total, articles:result.docs}); 
+
+});
+/*
 
     model.find({
    
@@ -55,7 +90,9 @@ exports.findall = function (req, res) {
             { author: { "$in" : terms } },
             { revisors: { "$in" : terms } },
             { dateCreated: { "$in" : terms } },
-            { dateModified: { "$in" : terms } }      
+            { dateModified: { "$in" : terms } },
+            { reviewDate: { "$in" : terms } } ,
+            { reviewNumber: { "$in" : terms } }         
         ]
 
     }, function(err, articles) {
@@ -63,13 +100,14 @@ exports.findall = function (req, res) {
             res.status(200).json({success:true,  articles:articles}); 
         } else {throw err;}
     });
+    */
 };
 
 exports.getOne = function (req, res) {       
     model.findOne({_id: req.params.id}, function(err, article) {
         if (!err){ 
             res.status(200).json({success:true,  article:article}); 
-        } else {throw err;}
+        } else {res.status(400).json({success:false,  article:null});}
     });
 };
 
@@ -93,6 +131,8 @@ exports.update = function(req, res) {
         article.revisors = req.body.revisors;
         article.dateCreated = req.body.dateCreated;
         article.dateModified = req.body.dateModified;
+        article.reviewDate = req.body.reviewDate;
+        article.reviewNumber = req.body.reviewNumber;
         
 
         article.date = req.body.date;
