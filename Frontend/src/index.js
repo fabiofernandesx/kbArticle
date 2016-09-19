@@ -1,16 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, browserHistory } from 'react-router';
+import promise from 'redux-promise';
 
-import reducers from './reducers';
-import routes from './routes';
+import App from './App';
+import KbIndex from './kb-index';
+import KbArticle from './kb-article';
+import KbCreate from './kb-create';
+import KbUpdate from './kb-update';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+import reducers from './kb-reducer';
+
+import './index.css';
+
+
+const createStoreWithMiddleware = applyMiddleware( promise )( createStore );
+
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory} routes={routes} />
-  </Provider>
-  , document.querySelector('.container'));
+	<Provider store={createStoreWithMiddleware(reducers)}>
+		<Router history={browserHistory}>
+			<Route path="/" component={App} > 
+				<IndexRoute component={ KbIndex } />		
+				<Route path="article/create" component={ KbCreate } />
+				<Route path="article/:id" component={ KbArticle } />			
+				<Route path="article/update/:id" component={ KbUpdate } />
+			</Route>
+		</Router>
+	</Provider>
+  , 
+  document.getElementById('root')
+);

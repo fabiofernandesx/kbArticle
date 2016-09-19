@@ -1,0 +1,5 @@
+create-react-app kbArticles
+npm start (boilerplate)
+
+npm install --save react-router
+

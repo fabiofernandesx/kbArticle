@@ -1,32 +1,29 @@
 {
-  "name": "kbArticle",
-  "version": "1.0.0",
-  "description": "Knowledge Base Articles Management",
-  "main": "index.js",
+  "name": "kbArticles",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/fabiofernandesx/kbArticle.git"
-  },
-  "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"    
-  },
+  },  
   "author": "Fabio Fernandes <fabio@fabiofernandes.net>",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.2.1",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "react-scripts": "0.4.2"
   },
   "dependencies": {
-    "babel-preset-stage-1": "^6.1.18",
-    "lodash": "^3.10.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-redux": "^4.0.0",
-    "react-router": "^2.0.1",
-    "redux": "^3.0.4"
+    "axios": "^0.14.0",
+    "lodash": "^4.15.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-promise": "^0.5.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

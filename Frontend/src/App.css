@@ -1,0 +1,69 @@
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.title-head{
+  background-color: #dddece;
+  font-weight: bold;
+}
+.row {
+  border-right: 1px solid gray;
+}
+
+.row:last-child {
+  border-bottom: 1px solid gray;
+}
+.col-custom {
+  border: 1px solid gray;
+  border-bottom: none;
+  border-right: none;
+  display: inline-block;
+  vertical-align: center;
+  padding:15px;
+}
+.field-custom {
+  border: 1px solid gray;
+  border-bottom: none;
+  border-right: none;
+  display: inline-block;
+  vertical-align: center;
+  padding:12px;
+}
+.field-custom input, .field-custom textarea {
+  width: 100%;
+}
+.placeholder{
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-color: #eee;
+}
+.placeholder span{
+  display: inline-block;
+  vertical-align: middle;
+}
+.header {
+  padding-bottom: 1rem;
+  border-bottom: .05rem solid #e5e5e5;
+  margin-bottom: 2rem;
+}
+
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+}
+.page-link{
+  cursor:pointer;
+}
+.fade-enter{
+  right:100px;
+}
+.fade-enter-active{
+  right:0px;
+  transition: .5s ease-in all;
+}
+nav{
+  margin-bottom: 20px;
+}
