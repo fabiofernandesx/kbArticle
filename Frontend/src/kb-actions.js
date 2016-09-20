@@ -6,7 +6,7 @@ export const CREATE_ARTICLE = 'CREATE_ARTICLE';
 export const UPDATE_ARTICLE = 'UPDATE_ARTICLE';
 export const DELETE_ARTICLE = 'DELETE_ARTICLE';
 
-export const ROOT_URL = 'http://localhost:8000/api';
+export const ROOT_URL = 'http://172.30.100.133:8000/api';
 
 export function fetchArticles(term,page){
 
