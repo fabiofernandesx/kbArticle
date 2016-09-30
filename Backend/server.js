@@ -5,6 +5,7 @@ var morgan        = require('morgan');
 var mongoose      = require('mongoose');
 var config		  = require('./api/shared/config');
 var cors 		  = require('cors');
+var path		  = require("path");
 
 var app = express();
 var server = require('http').createServer(app);
@@ -23,6 +24,7 @@ app.use(morgan('dev'));
 require('./routes')(app);
 
 var port = 8000;
+app.use(express.static(path.join(__dirname,"../frontend/build")));
 var server = app.listen(port);
 console.log("API up and running at port: " +  port);
 

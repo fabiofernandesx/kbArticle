@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -22,7 +22,7 @@ const createStoreWithMiddleware = applyMiddleware( promise )( createStore );
 
 ReactDOM.render(
 	<Provider store={createStoreWithMiddleware(reducers)}>
-		<Router history={browserHistory}>
+		<Router history={hashHistory}>
 			<Route path="/" component={App} > 
 				<IndexRoute component={ KbIndex } />		
 				<Route path="article/create" component={ KbCreate } />

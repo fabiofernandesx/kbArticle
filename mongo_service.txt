@@ -1,0 +1,5 @@
+C:\Users\administrator.KSG>"C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe"
+--config "C:\data\mongod.cfg" --install
+
+
+nssm.exe install kbArticleService C:\Program Files\nodejs\node.exe C:\_dbArticle\server.js
